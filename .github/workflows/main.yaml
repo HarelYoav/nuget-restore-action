@@ -1,6 +1,5 @@
-name: "JFrog CLI Example"
+name: "Nuget Restore Example"
 on: push
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,4 +11,4 @@ jobs:
           nuget-version: '5.11.6'
       - run: |
           nuget sources Add -Name Artifactory -Source ${{secrets.JF_URL}} -username ${{secrets.JF_USER}} -password ${{secrets.JF_TOKEN}}
-          nuget restore
+          nuget restore -Source Artifactory
