@@ -2,7 +2,7 @@ name: "Nuget Restore Example"
 on: push
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
