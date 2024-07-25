@@ -7,7 +7,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Installing Nuget
-      - uses: nuget/setup-nuget@v2
+        uses: nuget/setup-nuget@v2
         with:
           nuget-version: '5.11.6'
       - name: Configure Nuget
