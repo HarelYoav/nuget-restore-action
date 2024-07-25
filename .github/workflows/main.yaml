@@ -6,9 +6,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Installing Nuget
       - uses: nuget/setup-nuget@v2
         with:
           nuget-version: '5.11.6'
-      - run: |
-          nuget sources Add -Name Artifactory -Source ${{secrets.JF_URL}} -username ${{secrets.JF_USER}} -password ${{secrets.JF_TOKEN}}
-          nuget restore -Source Artifactory
+      - name: Configure Nuget
+        run: nuget sources Add -Name Artifactory -Source ${{secrets.JF_URL}} -username ${{secrets.JF_USER}} -password ${{secrets.JF_TOKEN}}
+      - name: Nuget Restore
+        run: nuget restore -Source Artifactory
